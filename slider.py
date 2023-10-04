@@ -51,6 +51,7 @@ def slider(length,
 def get_params_for_cs50():
     total_length = 100
     (adjust_hole_dia, adjust_hole_depth) = get_ruthex_h_d_m3()
+    (mount_holes_dia, mount_holes_depth) =get_ruthex_h_d_m6()
     p = {
         "length": total_length,
         "width": 12,
@@ -61,7 +62,7 @@ def get_params_for_cs50():
         "cutout_width": 2,
         "cutout_circle_dia": 4,
         "mount_holes_length": total_length * 0.8,
-        "mount_holes_dia": 6,
+        "mount_holes_dia": mount_holes_dia,
         "adjust_hole_dia": adjust_hole_dia,
         "adjust_hole_depth": adjust_hole_depth
         }
@@ -73,6 +74,10 @@ def get_ruthex_h_d_m3():
     dia = 4.0
     return dia, height
 
+def get_ruthex_h_d_m6():
+    height = 12.7
+    dia = 8
+    return dia, height
 
 params = get_params_for_cs50()
 slider = slider(**params)
