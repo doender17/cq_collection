@@ -51,7 +51,7 @@ def slider(length,
 def get_params_for_cs50():
     total_length = 100
     (adjust_hole_dia, adjust_hole_depth) = get_ruthex_h_d_m3()
-    (mount_holes_dia, mount_holes_depth) =get_ruthex_h_d_m6()
+    (mount_holes_dia, mount_holes_depth) =get_ruthex_h_d_m3()
     p = {
         "length": total_length,
         "width": 12,
@@ -68,10 +68,34 @@ def get_params_for_cs50():
         }
     return p
 
+def get_params_for_cs50_kumiko():
+    total_length = 130
+    (adjust_hole_dia, adjust_hole_depth) = get_ruthex_h_d_m3()
+    (mount_holes_dia, mount_holes_depth) =get_ruthex_h_d_m5()
+    p = {
+        "length": total_length,
+        "width": 12,
+        "total_height": 9,
+        "step_height": 2,
+        "step_tolerance": 0.25,
+        "cutout_length": total_length * 0.5,
+        "cutout_width": 2,
+        "cutout_circle_dia": 4,
+        "mount_holes_length": 90,
+        "mount_holes_dia": mount_holes_dia,
+        "adjust_hole_dia": adjust_hole_dia,
+        "adjust_hole_depth": adjust_hole_depth
+        }
+    return p
 
 def get_ruthex_h_d_m3():
     height = 5.7
     dia = 4.0
+    return dia, height
+
+def get_ruthex_h_d_m5():
+    height = 9.5
+    dia = 6.4
     return dia, height
 
 def get_ruthex_h_d_m6():
@@ -79,5 +103,6 @@ def get_ruthex_h_d_m6():
     dia = 8
     return dia, height
 
-params = get_params_for_cs50()
+params = get_params_for_cs50_kumiko()
 slider = slider(**params)
+# debug(slider)
